@@ -4,7 +4,7 @@ metadata:
   name: observability
   namespace: argocd
 spec:
-  project: defatult
+  project: default
   source:
     repoURL: git@github.com:KirilMilosevski/Homelab.git
     targetRevision: HEAD
