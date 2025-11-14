@@ -11,10 +11,10 @@ spec:
     path: observability
     directory:
       recurse: true
-    destionation:
+  destination:
       server: https://kubernetes.default.svc
       namespace: argocd
-    syncPolicy:
+  syncPolicy:
       automated:
         prune: true
         selfHeal: true
