@@ -1,0 +1,33 @@
+grafana:
+  adminUser: admin
+  adminPassword: admin
+  service:
+    type: NodePort
+    nodePort: 32000
+  additionalDataSources:
+    - name: Loki
+      type: Loki
+      access: proxy
+      url: http://loki.monitoring.svc:3100
+      jsonData:
+        maxLines: 1000
+
+
+
+
+prometheus:
+  service:
+    type: ClusterIP
+  prometheusSpec:
+    retention: 12h
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelector: {}
+    podMonitorNamespaceSelector: {}
+    podMonitorSelector: {}
+
+
+
+alertManager:
+  service:
+    type: ClusterIP
+
