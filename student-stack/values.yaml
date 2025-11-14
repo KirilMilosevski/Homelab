@@ -40,7 +40,7 @@ secrets:
   useExternalSecrets: true
   secretStoreRef:
     kind: ClusterSecretStore
-    name: vault-clusterstore
+    name: vault-secretstore
   app:
     name: app-credentials
     keys:
