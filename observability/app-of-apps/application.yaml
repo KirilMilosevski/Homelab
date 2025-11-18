@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/KirilMilosevski/ArgoCD.git 
+    repoURL: https://github.com/KirilMilosevski/Homelab.git
     targetRevision: HEAD
     path: observability
     directory:
