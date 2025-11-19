@@ -6,17 +6,17 @@ metadata:
 spec:
   project: homelab
   source:
-    repoURL: https://grafana.github.io/helm-charts
+    repoURL: 'https://grafana.github.io/helm-charts'
     chart: loki
     targetRevision: 6.*
     helm:
       valueFiles:
-        - values.yaml 
+        - values.yaml
   destination:
-        server: https://kubernetes.default.svc
-        namespace: monitoring
+    server: 'https://kubernetes.default.svc'
+    namespace: monitoring
   syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-      
+    automated:
+      prune: true
+      selfHeal: true
+
