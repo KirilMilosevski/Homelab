@@ -11,8 +11,6 @@ spec:
     targetRevision: 6.*
     helm:
       values: |
-         deploymentMode: SingleBinary
-
         singleBinary:
           replicas: 1
         # make sure all scalable/microservice targets are disabled
