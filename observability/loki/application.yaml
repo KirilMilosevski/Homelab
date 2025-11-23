@@ -11,6 +11,17 @@ spec:
     targetRevision: 6.*
     helm:
       values: |
+         deploymentMode: SingleBinary
+
+        singleBinary:
+          replicas: 1
+        # make sure all scalable/microservice targets are disabled
+        backend:
+          replicas: 0
+        read:
+          replicas: 0
+        write:
+          replicas: 0
         loki:
           auth_enabled: false
 
