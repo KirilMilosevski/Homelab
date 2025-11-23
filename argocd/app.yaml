@@ -7,7 +7,7 @@ metadata:
 spec:
   project: homelab            
   source:
-    repoURL: https://github.com/KirilMilosevski/ArgoCD.git   
+    repoURL: https://github.com/KirilMilosevski/Homelab.git   
     targetRevision: main
     path: student-stack
     helm:
