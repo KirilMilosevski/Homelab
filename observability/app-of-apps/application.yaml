@@ -11,6 +11,7 @@ spec:
     path: observability
     directory:
       recurse: true
+      include: "*.yaml"
   destination:
       server: https://kubernetes.default.svc
       namespace: argocd
