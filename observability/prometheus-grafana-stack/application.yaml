@@ -10,8 +10,36 @@ spec:
     chart: kube-prometheus-stack
     targetRevision: 66.*
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+      
+        grafana:
+          adminUser: admin
+          adminPassword: admin
+          service:
+            type: NodePort
+            nodePort: 32000
+          additionalDataSources:
+            - name: Loki
+              type: Loki
+              access: proxy
+              url: http://loki.monitoring.svc:3100
+              jsonData:
+                maxLines: 1000
+
+        prometheus:
+          service:
+            type: ClusterIP
+          prometheusSpec:
+            retention: 12h
+            serviceMonitorNamespaceSelector: {}
+            serviceMonitorSelector: {}
+            podMonitorNamespaceSelector: {}
+            podMonitorSelector: {}
+
+        alertmanager:
+          service:
+            type: ClusterIP
+            
   destination:
       server: https://kubernetes.default.svc
       namespace: monitoring
