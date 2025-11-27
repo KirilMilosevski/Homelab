@@ -10,8 +10,16 @@ spec:
     chart: promtail
     targetRevision: 6.*
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+      
+        config:
+          clients:
+            - url: http://loki.monitoring.svc:3100/loki/api/v1/push
+
+          snippets:
+            pipelineStages:
+              - docker: {}
+              
   destination:
       server: https://kubernetes.default.svc
       namespace: monitoring
