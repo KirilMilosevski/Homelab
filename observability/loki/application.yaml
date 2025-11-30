@@ -26,6 +26,9 @@ spec:
         resultsCache:
           enabled: false
 
+        resultsCache:
+          enabled: false
+
         loki:
           auth_enabled: false
 
