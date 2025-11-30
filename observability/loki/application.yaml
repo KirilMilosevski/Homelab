@@ -22,6 +22,10 @@ spec:
           replicas: 0
         write:
           replicas: 0
+
+        resultsCache:
+          enabled: false
+
         loki:
           auth_enabled: false
 
