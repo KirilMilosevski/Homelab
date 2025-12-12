@@ -5,7 +5,7 @@ metadata:
   name: student-api
   namespace: argocd
 spec:
-  project: homelab            
+  project: default
   source:
     repoURL: https://github.com/KirilMilosevski/Homelab.git   
     targetRevision: main
