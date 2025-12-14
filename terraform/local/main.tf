@@ -89,9 +89,38 @@ resource "kubernetes_namespace" "vault" {
   depends_on = [null_resource.k3d_cluster]
 }
 
+resource "kubernetes_namespace" "external_secrets" {
+  metadata {
+    name = "external-secrets"
+  }
+  depends_on = [null_resource.k3d_cluster]
+}
+
 # -------------------------------------------------------------------
 # 3) Vault via Helm
 # -------------------------------------------------------------------
+
+resource "helm_release" "external_secrets" {
+  name       = "external-secrets"
+  repository = "https://charts.external-secrets.io"
+  chart      = "external-secrets"
+  version    = "0.10.7" # pick a version you want to pin
+
+  namespace        = kubernetes_namespace.external_secrets.metadata[0].name
+  create_namespace = false
+
+  set {
+    name  = "installCRDs"
+    value = "true"
+  }
+
+  depends_on = [
+    null_resource.k3d_cluster,
+    kubernetes_namespace.external_secrets
+  ]
+}
+
+
 resource "helm_release" "vault" {
   name       = "vault"
   repository = "https://helm.releases.hashicorp.com"
@@ -165,7 +194,8 @@ resource "null_resource" "monitoring_root_app" {
 
   depends_on = [
     helm_release.argocd,
-    helm_release.vault
+    helm_release.vault,
+    helm_release.external_secrets
   ]
 }
 
@@ -180,7 +210,8 @@ resource "null_resource" "apps_root_app" {
 
   depends_on = [
     helm_release.argocd,
-    helm_release.vault
+    helm_release.vault,
+    helm_release.external_secrets
   ]
 }
 
