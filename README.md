@@ -2,7 +2,7 @@ Homelab — GitOps Kubernetes Platform
 
 Goal: Build and operate Kubernetes the same way it’s done in production — fully automated, observable, and Git-driven.
 
-A reproducible Kubernetes homelab platform built using Terraform, Argo CD, and Helm, with integrated observability and a real application deployment to demonstrate end-to-end delivery.
+A reproducible Kubernetes homelab platform built using HELM + PLG + Terraform + Argo CD + Vault, with integrated observability and a real application deployment to demonstrate end-to-end delivery.
 
 This project mirrors production-grade DevOps practices in a lightweight local environment.
 
@@ -15,6 +15,6 @@ What this project demonstrates
 
 - Declarative Kubernetes deployments using Helm
 
-- Observability-first mindset (metrics, logs, dashboards)
+- Observability-first mindset (metrics, logs, dashboards) using PLG + Promtail Stack
 
-- Real application deployment to validate the platform
+- Managing secrets via ESO Vault
