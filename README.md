@@ -1,4 +1,4 @@
-Homelab — GitOps Kubernetes Platform
+Homelab
 
 Goal: Build and operate Kubernetes the same way it’s done in production — fully automated, observable, and Git-driven.
 
